@@ -106,6 +106,7 @@ export const AICoach: React.FC = () => {
           <button
             key={i}
             onClick={() => handleSend(sug)}
+            aria-label={`Ask suggested question: ${sug}`}
             className="px-3.5 py-1.5 rounded-full border border-white/10 hover:border-primary/40 bg-white/[0.02] hover:bg-primary/5 text-xs text-on-surface hover:text-primary transition-all cursor-pointer font-body-md whitespace-nowrap shrink-0"
           >
             {sug}
@@ -117,6 +118,8 @@ export const AICoach: React.FC = () => {
       <div className="flex gap-3 items-center shrink-0">
         <input
           type="text"
+          id="chat-input"
+          aria-label="Ask CarbonLens Coach a question"
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSend(inputText)}
@@ -125,6 +128,7 @@ export const AICoach: React.FC = () => {
         />
         <button
           onClick={() => handleSend(inputText)}
+          aria-label="Send question to Coach"
           className="p-3.5 bg-primary text-on-primary rounded-xl hover:scale-105 active:scale-95 transition-all shadow-[0_0_15px_rgba(78,222,163,0.15)] cursor-pointer"
         >
           <Send className="h-5 w-5" />

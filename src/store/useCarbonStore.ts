@@ -528,8 +528,15 @@ export const useCarbonStore = create<CarbonState>((set, get) => ({
   },
 
   addChatMessage: (text, sender) => {
+    const generateId = () => {
+      if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+        return crypto.randomUUID();
+      }
+      return Math.random().toString(36).substring(2, 11);
+    };
+
     const newMessage: Message = {
-      id: Math.random().toString(36).substr(2, 9),
+      id: generateId(),
       sender,
       text,
       timestamp: new Date(),
@@ -557,7 +564,7 @@ export const useCarbonStore = create<CarbonState>((set, get) => ({
         }
 
         const replyMessage: Message = {
-          id: Math.random().toString(36).substr(2, 9),
+          id: generateId(),
           sender: 'ai',
           text: aiResponse,
           timestamp: new Date(),

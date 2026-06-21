@@ -49,7 +49,11 @@ export default function HomeRoot() {
           {/* Brand Logo & Name */}
           <div 
             onClick={() => setActiveTab("home")} 
-            className="flex items-center gap-3 cursor-pointer select-none"
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActiveTab("home"); } }}
+            role="button"
+            tabIndex={0}
+            aria-label="EcoSphere AI Logo - Go to Home"
+            className="flex items-center gap-3 cursor-pointer select-none focus:outline-none focus:ring-1 focus:ring-primary/40 rounded-lg p-1"
           >
             <Logo className="h-8 w-8 shrink-0 hover:scale-105 transition-all" />
             <div className="flex flex-col text-left">
@@ -64,6 +68,7 @@ export default function HomeRoot() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
+                aria-label={`Navigate to ${tab.label}`}
                 className={`px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer hover:text-primary ${
                   activeTab === tab.id
                     ? "bg-primary/15 text-primary border border-primary/20 shadow-sm"
@@ -78,11 +83,15 @@ export default function HomeRoot() {
 
           {/* User Controls & Call-to-action */}
           <div className="flex items-center gap-4">
-            <button className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all p-1.5 bg-white/5 rounded-lg border border-white/5 cursor-pointer">
+            <button 
+              aria-label="View notifications"
+              className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all p-1.5 bg-white/5 rounded-lg border border-white/5 cursor-pointer"
+            >
               <Bell className="h-4 w-4" />
             </button>
             <button 
               onClick={() => setActiveTab("coach")}
+              aria-label="Open AI Coach"
               className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all p-1.5 bg-white/5 rounded-lg border border-white/5 cursor-pointer"
             >
               <User className="h-4 w-4" />
@@ -101,6 +110,7 @@ export default function HomeRoot() {
             {/* Mobile Hamburger Trigger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close main menu" : "Open main menu"}
               className="block md:hidden p-1.5 bg-white/5 border border-white/5 rounded-lg text-on-surface-variant cursor-pointer"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
