@@ -1,0 +1,23 @@
+# Ignore dependencies
+node_modules
+.pnp
+.pnp.*
+
+# Ignore builds
+.next
+out
+build
+
+# Ignore environments
+.env*
+
+# Ignore git
+.git
+.gitignore
+
+# Ignore logs
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
