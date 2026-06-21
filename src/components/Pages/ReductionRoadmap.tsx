@@ -50,6 +50,7 @@ export const ReductionRoadmap: React.FC = () => {
                       {/* Interactive dot/check */}
                       <button
                         onClick={() => toggleRoadmapTask(task.id)}
+                        aria-label={`Toggle task completion: ${task.title}`}
                         className="absolute -left-[35px] top-0.5 bg-background focus:outline-none cursor-pointer"
                       >
                         {task.completed ? (
@@ -93,10 +94,11 @@ export const ReductionRoadmap: React.FC = () => {
           
           <div className="flex flex-col gap-3">
             {challenges.map((c) => (
-              <div
+              <button
                 key={c.id}
                 onClick={() => toggleChallenge(c.id)}
-                className={`p-4 rounded-xl border transition-all cursor-pointer text-left flex items-start gap-3 ${
+                aria-label={`Toggle challenge: ${c.title}`}
+                className={`p-4 rounded-xl border transition-all cursor-pointer text-left flex items-start gap-3 w-full ${
                   c.completed 
                     ? "bg-primary/5 border-primary/20 text-on-surface-variant" 
                     : "bg-white/[0.01] border-white/5 hover:border-primary/20 text-on-surface"
@@ -114,7 +116,7 @@ export const ReductionRoadmap: React.FC = () => {
                   <p className="text-[10px] text-on-surface-variant leading-relaxed">{c.description}</p>
                   <span className="text-[9px] font-label-caps text-primary uppercase mt-1">+{c.points} Points</span>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>

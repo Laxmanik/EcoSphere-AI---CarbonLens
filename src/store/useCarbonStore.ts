@@ -189,7 +189,7 @@ const performCalculations = (inputs: AssessmentInputs): CalculationResults => {
   const shoppingTotal = Math.round(shippingEmissions + clothingEmissions + electronicsEmissions);
 
   // 5. Waste Calculation (Annual kg CO2)
-  let wasteBaseline = 380; // Baseline annual waste emissions per person
+  const wasteBaseline = 380; // Baseline annual waste emissions per person
   let recyclingMultiplier = 0.5;
   if (inputs.recyclingFrequency === 'Always') recyclingMultiplier = 0.25;
   else if (inputs.recyclingFrequency === 'Often') recyclingMultiplier = 0.4;
@@ -478,10 +478,7 @@ export const useCarbonStore = create<CarbonState>((set, get) => ({
     set((state) => {
       const updatedChallenges = state.challenges.map((c) => {
         if (c.id === id) {
-          const nextState = !c.completed;
-          // Add or subtract eco points
-          const pointChange = nextState ? c.points : -c.points;
-          return { ...c, completed: nextState };
+          return { ...c, completed: !c.completed };
         }
         return c;
       });

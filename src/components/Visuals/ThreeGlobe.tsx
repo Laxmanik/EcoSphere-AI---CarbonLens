@@ -117,6 +117,8 @@ export const ThreeGlobe: React.FC = () => {
       material.dispose();
       particleGeometry.dispose();
       particleMaterial.dispose();
+      scene.clear();
+      renderer.dispose();
     };
   }, []);
 

@@ -112,7 +112,7 @@ export const BackgroundShader: React.FC = () => {
     const uRes = gl.getUniformLocation(prog, "u_resolution");
     const uMouse = gl.getUniformLocation(prog, "u_mouse");
 
-    let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+    const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
 
     const handleMouseMove = (event: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
@@ -144,6 +144,13 @@ export const BackgroundShader: React.FC = () => {
       window.removeEventListener("resize", syncSize);
       window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animFrameId);
+      
+      if (gl) {
+        if (buf) gl.deleteBuffer(buf);
+        if (vertexShader) gl.deleteShader(vertexShader);
+        if (fragmentShader) gl.deleteShader(fragmentShader);
+        if (prog) gl.deleteProgram(prog);
+      }
     };
   }, []);
 

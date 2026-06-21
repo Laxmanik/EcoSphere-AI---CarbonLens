@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useCarbonStore } from "@/store/useCarbonStore";
 import { BackgroundShader } from "@/components/Visuals/BackgroundShader";
 import { Logo } from "@/components/Logo";
@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 export default function HomeRoot() {
-  const { hasCompletedWizard, wizardStep, setWizardStep } = useCarbonStore();
+  const { hasCompletedWizard, setWizardStep } = useCarbonStore();
   const [activeTab, setActiveTab] = useState<string>("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 

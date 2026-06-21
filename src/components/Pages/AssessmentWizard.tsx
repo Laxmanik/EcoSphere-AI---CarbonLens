@@ -105,7 +105,7 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({ onComplete }
             {wizardStep === 0 && (
               <div className="flex flex-col gap-6 text-left">
                 <h3 className="font-headline-md text-headline-md">Transportation habits</h3>
-                <p className="text-on-surface-variant text-sm">Let's audit your carbon footprints from daily travel and commutes.</p>
+                <p className="text-on-surface-variant text-sm">Let&apos;s audit your carbon footprints from daily travel and commutes.</p>
                 
                 {/* Vehicle type */}
                 <div className="flex flex-col gap-3 mt-2">
@@ -131,10 +131,11 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({ onComplete }
                 {inputs.vehicleType !== "None" && (
                   <div className="flex flex-col gap-2 mt-4">
                     <div className="flex justify-between text-sm">
-                      <label className="font-semibold text-on-surface">Monthly Driving Distance</label>
+                      <label htmlFor="vehicle-distance-input" className="font-semibold text-on-surface">Monthly Driving Distance</label>
                       <span className="text-primary font-mono">{inputs.distanceTravelled} miles</span>
                     </div>
                     <input
+                      id="vehicle-distance-input"
                       type="range"
                       min="0"
                       max="3000"
@@ -149,8 +150,9 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({ onComplete }
                 {/* Flights & transit */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-on-surface">Annual Flights Taken</label>
+                    <label htmlFor="flights-input" className="text-sm font-semibold text-on-surface">Annual Flights Taken</label>
                     <input
+                      id="flights-input"
                       type="number"
                       min="0"
                       max="100"
@@ -160,8 +162,9 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({ onComplete }
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-on-surface">Public Transit (hours/week)</label>
+                    <label htmlFor="transit-input" className="text-sm font-semibold text-on-surface">Public Transit (hours/week)</label>
                     <input
+                      id="transit-input"
                       type="number"
                       min="0"
                       max="168"
@@ -181,8 +184,9 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({ onComplete }
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-2">
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-on-surface">Electricity consumption (kWh/month)</label>
+                    <label htmlFor="electricity-input" className="text-sm font-semibold text-on-surface">Electricity consumption (kWh/month)</label>
                     <input
+                      id="electricity-input"
                       type="number"
                       min="0"
                       value={inputs.electricityConsumption}
@@ -191,8 +195,9 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({ onComplete }
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-on-surface">AC Usage (hours/day)</label>
+                    <label htmlFor="ac-usage-input" className="text-sm font-semibold text-on-surface">AC Usage (hours/day)</label>
                     <input
+                      id="ac-usage-input"
                       type="number"
                       min="0"
                       max="24"
@@ -206,10 +211,11 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({ onComplete }
                 {/* Renewable slide */}
                 <div className="flex flex-col gap-2 mt-4">
                   <div className="flex justify-between text-sm">
-                    <label className="font-semibold text-on-surface">Renewable Energy Percentage</label>
+                    <label htmlFor="renewable-percent-input" className="font-semibold text-on-surface">Renewable Energy Percentage</label>
                     <span className="text-primary font-mono">{inputs.renewablePercentage}%</span>
                   </div>
                   <input
+                    id="renewable-percent-input"
                     type="range"
                     min="0"
                     max="100"
@@ -297,8 +303,9 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({ onComplete }
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-2">
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-on-surface">Online Deliveries (month)</label>
+                    <label htmlFor="online-deliveries-input" className="text-sm font-semibold text-on-surface">Online Deliveries (month)</label>
                     <input
+                      id="online-deliveries-input"
                       type="number"
                       min="0"
                       value={inputs.onlinePurchases}
@@ -307,8 +314,9 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({ onComplete }
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-on-surface">Clothing Purchases (month)</label>
+                    <label htmlFor="clothing-purchases-input" className="text-sm font-semibold text-on-surface">Clothing Purchases (month)</label>
                     <input
+                      id="clothing-purchases-input"
                       type="number"
                       min="0"
                       value={inputs.clothingPurchases}
@@ -317,8 +325,9 @@ export const AssessmentWizard: React.FC<AssessmentWizardProps> = ({ onComplete }
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-on-surface">Electronics Sourced (year)</label>
+                    <label htmlFor="electronics-purchases-input" className="text-sm font-semibold text-on-surface">Electronics Sourced (year)</label>
                     <input
+                      id="electronics-purchases-input"
                       type="number"
                       min="0"
                       value={inputs.electronicsPurchases}

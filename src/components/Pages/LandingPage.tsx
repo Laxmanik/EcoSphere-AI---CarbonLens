@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { ThreeGlobe } from "../Visuals/ThreeGlobe";
-import { useCarbonStore } from "@/store/useCarbonStore";
-import { ArrowRight, Thermometer, Shield, Award, BarChart3, Factory, ShieldCheck, HelpCircle, Activity } from "lucide-react";
+import { ArrowRight, Thermometer, Award, BarChart3, Factory, ShieldCheck, HelpCircle, Activity } from "lucide-react";
 
 interface LandingPageProps {
   onStartAssessment: () => void;
@@ -124,7 +124,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment, onN
                   </div>
                 </div>
                 <div className="absolute -bottom-6 -right-6 glass-card p-4 rounded-xl border border-primary/30 max-w-[220px] shadow-lg">
-                  <p className="font-body-md text-body-md text-on-surface">"Every action leaves a digital ghost of carbon."</p>
+                  <p className="font-body-md text-body-md text-on-surface">&ldquo;Every action leaves a digital ghost of carbon.&rdquo;</p>
                 </div>
               </div>
             </div>
@@ -162,7 +162,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment, onN
           <span className="font-label-caps text-label-caps text-soft-lime uppercase">Human Impact</span>
           <h2 className="font-headline-lg text-headline-lg max-w-3xl">Decisions made today define the breathable air of 2050.</h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-            We aren't just calculating numbers; we are architecting resilience. By identifying peak carbon drivers, we help you pivot toward sustainable habits without compromising quality of life.
+            We aren&apos;t just calculating numbers; we are architecting resilience. By identifying peak carbon drivers, we help you pivot toward sustainable habits without compromising quality of life.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-12">
             <div className="p-8 rounded-2xl bg-surface-container flex flex-col gap-4 text-left border border-white/5 shadow-md">
@@ -178,7 +178,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment, onN
             <div className="p-8 rounded-2xl bg-surface-container flex flex-col gap-4 text-left border border-white/5 shadow-md">
               <Award className="text-primary h-10 w-10" />
               <h3 className="font-headline-md text-headline-md">Social Legacy</h3>
-              <p className="text-on-surface-variant text-sm">Your footprint is your commitment to the next generation's quality of life and resource access.</p>
+              <p className="text-on-surface-variant text-sm">Your footprint is your commitment to the next generation&apos;s quality of life and resource access.</p>
             </div>
           </div>
         </div>
@@ -194,9 +194,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment, onN
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             <div className="group relative overflow-hidden rounded-xl aspect-[3/4] bg-surface-container-low border border-white/10 hover:border-primary/50 transition-all p-6 flex flex-col justify-end">
-              <img
+              <Image
                 src="/images/logistics_eco.png"
                 alt="Logistics"
+                fill
+                sizes="(max-width: 768px) 100vw, 20vw"
                 className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-500 z-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container/60 to-transparent z-10"></div>
@@ -205,9 +207,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment, onN
               <p className="text-xs text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 relative z-20">Shipping & global delivery</p>
             </div>
             <div className="group relative overflow-hidden rounded-xl aspect-[3/4] bg-surface-container-low border border-white/10 hover:border-primary/50 transition-all p-6 flex flex-col justify-end">
-              <img
+              <Image
                 src="/images/power_grid_eco.png"
                 alt="Power Grid"
+                fill
+                sizes="(max-width: 768px) 100vw, 20vw"
                 className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-500 z-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container/60 to-transparent z-10"></div>
@@ -216,9 +220,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment, onN
               <p className="text-xs text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 relative z-20">Electricity & cooling</p>
             </div>
             <div className="group relative overflow-hidden rounded-xl aspect-[3/4] bg-surface-container-low border border-white/10 hover:border-primary/50 transition-all p-6 flex flex-col justify-end">
-              <img
+              <Image
                 src="/images/travel_eco.png"
                 alt="Travel"
+                fill
+                sizes="(max-width: 768px) 100vw, 20vw"
                 className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-500 z-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container/60 to-transparent z-10"></div>
@@ -227,9 +233,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment, onN
               <p className="text-xs text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 relative z-20">Cars, flights & commutes</p>
             </div>
             <div className="group relative overflow-hidden rounded-xl aspect-[3/4] bg-surface-container-low border border-white/10 hover:border-primary/50 transition-all p-6 flex flex-col justify-end">
-              <img
+              <Image
                 src="/images/agri_food_eco.png"
                 alt="Agri-food"
+                fill
+                sizes="(max-width: 768px) 100vw, 20vw"
                 className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-500 z-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container/60 to-transparent z-10"></div>
@@ -238,9 +246,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment, onN
               <p className="text-xs text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1 relative z-20">Meat, dairy & waste</p>
             </div>
             <div className="group relative overflow-hidden rounded-xl aspect-[3/4] bg-surface-container-low border border-white/10 hover:border-primary/50 transition-all p-6 flex flex-col justify-end">
-              <img
+              <Image
                 src="/images/fashion_eco.png"
                 alt="Fashion"
+                fill
+                sizes="(max-width: 768px) 100vw, 20vw"
                 className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-500 z-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container/60 to-transparent z-10"></div>

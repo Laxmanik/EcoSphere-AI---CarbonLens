@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useCarbonStore } from "@/store/useCarbonStore";
 import { jsPDF } from "jspdf";
-import { Search, FileDown, BookOpen, ExternalLink, Leaf, Award, Download, Share2 } from "lucide-react";
+import { Search, FileDown, ExternalLink, Award, Share2 } from "lucide-react";
 
 interface Article {
   id: string;
@@ -58,10 +58,9 @@ const articlesCatalog: Article[] = [
 ];
 
 export const EducationHub: React.FC = () => {
-  const { results, inputs, roadmap } = useCarbonStore();
+  const { results, roadmap } = useCarbonStore();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [copied, setCopied] = useState(false);
 
   // Filter articles
   const filteredArticles = articlesCatalog.filter((art) => {
@@ -181,9 +180,10 @@ export const EducationHub: React.FC = () => {
       }
 
       doc.save("EcoSphereAI_CarbonLens_Report.pdf");
-    } catch (err: any) {
+    } catch (err: unknown) {
+      const errMsg = err instanceof Error ? err.message : String(err);
       console.error("PDF generation failed:", err);
-      alert("Failed to export PDF: " + err.message);
+      alert("Failed to export PDF: " + errMsg);
     }
   };
 
@@ -306,9 +306,10 @@ export const EducationHub: React.FC = () => {
       link.href = dataUrl;
       link.download = `EcoSphere_CarbonLens_Scorecard_${results.sustainabilityScore}.png`;
       link.click();
-    } catch (err: any) {
+    } catch (err: unknown) {
+      const errMsg = err instanceof Error ? err.message : String(err);
       console.error("Canvas drawing failed:", err);
-      alert("Failed to download card: " + err.message);
+      alert("Failed to download card: " + errMsg);
     }
   };
 
@@ -394,6 +395,8 @@ export const EducationHub: React.FC = () => {
             <Search className="absolute left-3 top-3 h-4 w-4 text-on-surface-variant" />
             <input
               type="text"
+              id="article-search-input"
+              aria-label="Search articles catalog"
               placeholder="Search directory..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
